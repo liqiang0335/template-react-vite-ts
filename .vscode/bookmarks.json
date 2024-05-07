@@ -1,0 +1,54 @@
+{
+	"files": [
+		{
+			"path": "src/routes.tsx",
+			"bookmarks": [
+				{
+					"line": 4,
+					"column": 7,
+					"label": "路由配置"
+				}
+			]
+		},
+		{
+			"path": "src/App.tsx",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 42,
+					"label": "App"
+				}
+			]
+		},
+		{
+			"path": "src/main.tsx",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 26,
+					"label": "Main"
+				}
+			]
+		},
+		{
+			"path": "src/style/index.css",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 15,
+					"label": "全局样式"
+				}
+			]
+		},
+		{
+			"path": "src/vite-env.d.ts",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 37,
+					"label": "vite 类型定义"
+				}
+			]
+		}
+	]
+}
