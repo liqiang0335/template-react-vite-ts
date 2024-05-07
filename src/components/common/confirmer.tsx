@@ -17,7 +17,7 @@ export function confirmer(content = "确定要删除吗", title = "操作确认"
       },
       onCancel() {
         reject();
-      }
+      },
     });
   });
 }
