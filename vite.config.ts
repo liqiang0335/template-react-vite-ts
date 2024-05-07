@@ -13,6 +13,7 @@ export default defineConfig({
     },
   },
   server: {
+    port: 8756,
     proxy: {
       "/api": {
         target: "http://www.xxx.com",
