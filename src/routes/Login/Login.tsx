@@ -55,7 +55,7 @@ export default function login() {
     <AppWrapper>
       <div className="w-full h-full flex items-center justify-center bg-gray-100 select-none" style={{ height: "90vh" }}>
         <div className="h-[320px] w-[500px] bg-white shadow-sm relative">
-          <div className="text-center my-6 tracking-widest text-lg text-gray-500 neon-bold">登录</div>
+          <div className="text-center my-6 tracking-widest text-lg text-gray-500 neon-bold">软件数据管理系统</div>
           <div className="space-y-2 px-10">
             <Input size="large" placeholder="邮箱" className="w-full" value={state.account} onChange={(e) => dispatch({ account: e.target.value })} />
             <Input
