@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App.tsx";
 import "./style/index.css";
-import { Field } from "./constant/names.const.ts";
-import Login from "./routes/Login/Login.tsx";
 
 main();
 async function main() {
   const root = document.getElementById("root") as HTMLElement;
 
-  const token = localStorage.getItem(Field.Token);
+  const token = localStorage.getItem('token');
   if (token) {
     window.token = token;
 
@@ -19,6 +17,6 @@ async function main() {
       </React.StrictMode>,
     );
   } else {
-    ReactDOM.createRoot(root).render(<Login />);
+    ReactDOM.createRoot(root).render(<App />);
   }
 }

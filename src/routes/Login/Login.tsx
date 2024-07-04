@@ -3,19 +3,26 @@ import { toast } from "sonner";
 import { userLogin } from "@/utils/api";
 import { useKeyPress } from "ahooks";
 import { AppWrapper } from "@/AppWrapper";
-import { Field } from "@/constant/names.const";
 import { useEffect } from "react";
 import { useReducerWrap } from "@/hook/useReducerWrap";
 
-export default function login() {
+const LocalkeyAccount = 'account';
+const LocalkeyPassword = 'password';
+const LocalkeyToken = 'token';
+
+
+/**
+ * 登录页面
+ */
+export function Login() {
   const [state, dispatch] = useReducerWrap({
-    account: localStorage[Field.Account] || "",
-    password: localStorage[Field.Password] || "",
-    remember: !!localStorage[Field.Password],
+    account: localStorage.getItem(LocalkeyAccount) || "",
+    password: localStorage.getItem(LocalkeyPassword) || "",
+    remember: !!localStorage.getItem(LocalkeyPassword),
   });
 
   useEffect(() => {
-    localStorage[Field.Token] = "";
+    localStorage.setItem(LocalkeyToken, "");
   }, []);
 
   const submit = async () => {
@@ -24,22 +31,17 @@ export default function login() {
     const params = { account: state.account, password: state.password };
     const res = await userLogin(params);
 
-    // 新账号登录, 清除全局缓存
-    if (localStorage[Field.Account] && localStorage[Field.Account] !== state.account) {
-      localStorage.removeItem(Field.GlobalStore);
-    }
-
     // 保存token
-    localStorage.setItem(Field.Token, res.token);
+    localStorage.setItem(LocalkeyToken, res.token);
 
     // 记住账号
-    localStorage[Field.Account] = state.account;
+    localStorage[LocalkeyAccount] = state.account;
 
     // 记住密码
     if (state.remember) {
-      localStorage[Field.Password] = state.password;
+      localStorage[LocalkeyPassword] = state.password;
     } else {
-      localStorage.removeItem(Field.Password);
+      localStorage.removeItem(LocalkeyPassword);
     }
 
     // 刷新页面
